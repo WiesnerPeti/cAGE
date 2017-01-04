@@ -17,6 +17,7 @@ public:
     static void testVectorSubstraction();
     static void testVectorMagnitude();
     static void testVectorProduct();
+    static void testVectorCrossProduct();
 };
 
 #endif /* AllTests_hpp */

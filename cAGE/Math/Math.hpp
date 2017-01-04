@@ -47,8 +47,28 @@ struct Vector{
         return x*x + y*y + z*z;
     }
     
-    F32 product(Vector v){
+    F32 dotProduct(Vector v){
         return x*v.x + y*v.y + z*v.z;
+    }
+    
+    Vector crossProduct(Vector v){
+        return {y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.y};
+    }
+    
+    bool isCollinear(Vector v){
+        return dotProduct(v) >= 1;
+    }
+    
+    bool isCollinearOpposite(Vector v){
+        return dotProduct(v) <= -1;
+    }
+    
+    bool isSameDirection(Vector v){
+        return dotProduct(v) > 0;
+    }
+    
+    bool isOppositeDirection(Vector v){
+        return dotProduct(v) < 0;
     }
     
     bool equals(Vector v){

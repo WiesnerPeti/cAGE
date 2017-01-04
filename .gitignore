@@ -29,4 +29,5 @@
 *.app
 
 # Xcode files
+xcuserdata
 *.xcuserstate

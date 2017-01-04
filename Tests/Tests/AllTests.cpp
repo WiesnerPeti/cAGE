@@ -51,7 +51,16 @@ void Tests::testVectorProduct(){
     Vector v1 = {3,1,2};
     Vector v2 = {2,1,3};
     
-    F32 p = v1.product(v2);
+    F32 p = v1.dotProduct(v2);
     
     ASSERTF32Equal(p, 13);
+}
+
+void Tests::testVectorCrossProduct(){
+    Vector v1 = {3,1,2};
+    Vector v2 = {2,1,3};
+    
+    Vector v3 = v1.crossProduct(v2);
+    
+    ASSERT(v3.equals({1,-5, 2}));
 }

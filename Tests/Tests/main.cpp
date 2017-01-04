@@ -16,6 +16,7 @@ int main(int argc, const char * argv[]) {
     Tests::testVectorSubstraction();
     Tests::testVectorMagnitude();
     Tests::testVectorProduct();
+    Tests::testVectorCrossProduct();
     
     return 0;
 }

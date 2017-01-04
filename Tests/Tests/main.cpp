@@ -11,12 +11,15 @@
 
 int main(int argc, const char * argv[]) {
     
-    Tests::testVectorMultiplication();
-    Tests::testVectorAddition();
-    Tests::testVectorSubstraction();
-    Tests::testVectorMagnitude();
-    Tests::testVectorProduct();
-    Tests::testVectorCrossProduct();
+    VectorTests::testVectorMultiplication();
+    VectorTests::testVectorAddition();
+    VectorTests::testVectorSubstraction();
+    VectorTests::testVectorMagnitude();
+    VectorTests::testVectorProduct();
+    VectorTests::testVectorCrossProduct();
+    VectorTests::testVectorLERP();
+    
+    MatrixTests::testMatrixMultiplication();
     
     return 0;
 }

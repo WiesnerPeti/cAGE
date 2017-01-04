@@ -10,5 +10,6 @@
 #define Types_h
 
 typedef float F32;
+typedef bool B8;
 
 #endif /* Types_h */

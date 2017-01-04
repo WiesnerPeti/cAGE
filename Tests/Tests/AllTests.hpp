@@ -9,7 +9,7 @@
 #ifndef AllTests_hpp
 #define AllTests_hpp
 
-class Tests {
+class VectorTests {
     
 public:
     static void testVectorMultiplication();
@@ -18,6 +18,13 @@ public:
     static void testVectorMagnitude();
     static void testVectorProduct();
     static void testVectorCrossProduct();
+    static void testVectorLERP();
+};
+
+class MatrixTests {
+    
+public:
+    static void testMatrixMultiplication();
 };
 
 #endif /* AllTests_hpp */

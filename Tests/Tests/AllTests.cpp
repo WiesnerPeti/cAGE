@@ -11,28 +11,29 @@
 #include "Math.hpp"
 #include "Assertion.h"
 
-void Tests::testVectorMultiplication()
+#pragma mark - Vector Tests
+void VectorTests::testVectorMultiplication()
 {
     Vector v = {1,1,1};
     
     ASSERT(v.multiply(5).equals({5,5,5}));
 }
 
-void Tests::testVectorAddition(){
+void VectorTests::testVectorAddition(){
     Vector v1 = {1,1,1};
     Vector v2 = {2,2,2};
     
     ASSERT(v1.add(v2).equals({3,3,3}));
 }
 
-void Tests::testVectorSubstraction(){
+void VectorTests::testVectorSubstraction(){
     Vector v1 = {2,2,2};
     Vector v2 = {1,1,1};
     
     ASSERT(v1.substract(v2).equals({1,1,1}));
 }
 
-void Tests::testVectorMagnitude(){
+void VectorTests::testVectorMagnitude(){
     
     Vector v = {1,2,3};
     
@@ -41,7 +42,7 @@ void Tests::testVectorMagnitude(){
     ASSERTF32Equal(m, 14);
 }
 
-void Tests::testVectorProduct(){
+void VectorTests::testVectorProduct(){
     Vector v1 = {3,1,2};
     Vector v2 = {2,1,3};
     
@@ -50,11 +51,34 @@ void Tests::testVectorProduct(){
     ASSERTF32Equal(p, 13);
 }
 
-void Tests::testVectorCrossProduct(){
+void VectorTests::testVectorCrossProduct(){
     Vector v1 = {3,1,2};
     Vector v2 = {2,1,3};
     
     Vector v3 = v1.crossProduct(v2);
     
     ASSERT(v3.equals({1,-5, 2}));
+}
+
+void VectorTests::testVectorLERP(){
+    Vector v1 = {1,1,1};
+    Vector v2 = {2,2,2};
+    
+    Vector v3 = v1.LERP(v2, 0.4);
+    
+    ASSERT(v3.equals({1.4, 1.4,1.4}));
+}
+
+#pragma mark - Matrix tests
+void MatrixTests::testMatrixMultiplication(){
+    TransMatrix m = {
+        1,2,3,
+        4,5,6,
+        7,8,9,
+        10,11,12
+    };
+    
+    TransMatrix i = TransMatrix::identity();
+    
+    ASSERT(m.equals(m.multiply(i)))
 }

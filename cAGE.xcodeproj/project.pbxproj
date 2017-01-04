@@ -13,8 +13,6 @@
 		EE7FE07D1E1D52F800CA8148 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7FE07B1E1D52F800CA8148 /* Math.cpp */; };
 		EE7FE07E1E1D52F800CA8148 /* Math.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE7FE07C1E1D52F800CA8148 /* Math.hpp */; };
 		EE7FE0811E1D539000CA8148 /* Types.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7FE0801E1D535D00CA8148 /* Types.h */; };
-		EE7FE0851E1D550900CA8148 /* Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7FE0831E1D550900CA8148 /* Tests.cpp */; };
-		EE7FE0861E1D550900CA8148 /* Tests.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE7FE0841E1D550900CA8148 /* Tests.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +23,6 @@
 		EE7FE07B1E1D52F800CA8148 /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Math.cpp; path = Math/Math.cpp; sourceTree = "<group>"; };
 		EE7FE07C1E1D52F800CA8148 /* Math.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Math.hpp; path = Math/Math.hpp; sourceTree = "<group>"; };
 		EE7FE0801E1D535D00CA8148 /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Types.h; path = Types/Types.h; sourceTree = "<group>"; };
-		EE7FE0831E1D550900CA8148 /* Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tests.cpp; path = Tests/Tests.cpp; sourceTree = "<group>"; };
-		EE7FE0841E1D550900CA8148 /* Tests.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Tests.hpp; path = Tests/Tests.hpp; sourceTree = "<group>"; };
 		EE7FE0871E1D566800CA8148 /* Assertion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Assertion.h; path = Assertion/Assertion.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,7 +40,6 @@
 		EE7FE0631E1C5ADA00CA8148 = {
 			isa = PBXGroup;
 			children = (
-				EE7FE0821E1D54F100CA8148 /* Tests */,
 				EE7FE06E1E1C5ADB00CA8148 /* cAGE */,
 				EE7FE06D1E1C5ADB00CA8148 /* Products */,
 			);
@@ -88,15 +83,6 @@
 			name = Types;
 			sourceTree = "<group>";
 		};
-		EE7FE0821E1D54F100CA8148 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				EE7FE0831E1D550900CA8148 /* Tests.cpp */,
-				EE7FE0841E1D550900CA8148 /* Tests.hpp */,
-			);
-			name = Tests;
-			sourceTree = "<group>";
-		};
 		EE7FE0881E1D574D00CA8148 /* Assertion */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +99,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7FE0811E1D539000CA8148 /* Types.h in Headers */,
-				EE7FE0861E1D550900CA8148 /* Tests.hpp in Headers */,
 				EE7FE0701E1C5ADB00CA8148 /* cAGE.hpp in Headers */,
 				EE7FE07E1E1D52F800CA8148 /* Math.hpp in Headers */,
 				EE7FE0721E1C5ADB00CA8148 /* cAGEPriv.hpp in Headers */,
@@ -177,7 +162,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE7FE0851E1D550900CA8148 /* Tests.cpp in Sources */,
 				EE7FE0741E1C5ADB00CA8148 /* cAGE.cpp in Sources */,
 				EE7FE07D1E1D52F800CA8148 /* Math.cpp in Sources */,
 			);
@@ -318,6 +302,7 @@
 				EE7FE0791E1C5ADB00CA8148 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

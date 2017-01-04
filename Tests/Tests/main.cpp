@@ -20,6 +20,7 @@ int main(int argc, const char * argv[]) {
     VectorTests::testVectorLERP();
     
     MatrixTests::testMatrixMultiplication();
+    MatrixTests::testMatrixDeterminant();
     
     return 0;
 }

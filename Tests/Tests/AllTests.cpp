@@ -75,10 +75,21 @@ void MatrixTests::testMatrixMultiplication(){
         1,2,3,
         4,5,6,
         7,8,9,
-        10,11,12
+        10,11,12,1
     };
     
     TransMatrix i = TransMatrix::identity();
     
     ASSERT(m.equals(m.multiply(i)))
+}
+
+void MatrixTests::testMatrixDeterminant(){
+    TransMatrix m = {
+        1,2,3,
+        4,6,6,
+        7,8,9,
+        10,11,12,1
+    };
+    
+    ASSERTF32Equal(m.determinant(), -12);
 }

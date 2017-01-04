@@ -25,6 +25,7 @@ class MatrixTests {
     
 public:
     static void testMatrixMultiplication();
+    static void testMatrixDeterminant();
 };
 
 #endif /* AllTests_hpp */

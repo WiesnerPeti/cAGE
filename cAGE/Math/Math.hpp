@@ -92,7 +92,7 @@ struct Vector{
     }
 };
 
-//Using 4x3 matrixes to save memory, rightmost column is always [0, 0, 0, 1]
+//Using 4x3+1 index matrixes to save memory, rightmost column is always [0, 0, 0, 1], last item is saved due to scalar multiplication
 struct TransMatrix{
     F32 m11;
     F32 m12;
@@ -106,13 +106,14 @@ struct TransMatrix{
     F32 m41;
     F32 m42;
     F32 m43;
+    F32 m44;
     
     static TransMatrix identity(){
         return {
             1,0,0,
             0,1,0,
             0,0,1,
-            0,0,0,
+            0,0,0,1
         };
     }
     
@@ -121,8 +122,28 @@ struct TransMatrix{
                 m11*m.m11 + m12*m.m21 + m13*m.m31 ,m11*m.m21 + m12*m.m22 + m13*m.m23 ,m11*m.m31 + m12*m.m32 + m13*m.m33 ,
                 m21*m.m11 + m22*m.m21 + m23*m.m31 ,m21*m.m21 + m22*m.m22 + m23*m.m23 ,m21*m.m31 + m22*m.m32 + m23*m.m33 ,
                 m31*m.m11 + m32*m.m21 + m33*m.m31 ,m31*m.m21 + m32*m.m22 + m33*m.m23 ,m31*m.m31 + m32*m.m32 + m33*m.m33 ,
-                m41*m.m11 + m42*m.m21 + m43*m.m31 ,m41*m.m21 + m42*m.m22 + m43*m.m23 ,m41*m.m31 + m42*m.m32 + m43*m.m33
+                m41*m.m11 + m42*m.m21 + m43*m.m31 ,m41*m.m21 + m42*m.m22 + m43*m.m23 ,m41*m.m31 + m42*m.m32 + m43*m.m33 , m44*m.m44
                 };
+    }
+    
+    TransMatrix multiply(F32 scale){
+        return {
+            m11*scale + m12*scale + m13*scale ,m11*scale + m12*scale + m13*scale ,m11*scale + m12*scale + m13*scale ,
+            m21*scale + m22*scale + m23*scale ,m21*scale + m22*scale + m23*scale ,m21*scale + m22*scale + m23*scale ,
+            m31*scale + m32*scale + m33*scale ,m31*scale + m32*scale + m33*scale ,m31*scale + m32*scale + m33*scale ,
+            m41*scale + m42*scale + m43*scale ,m41*scale + m42*scale + m43*scale ,m41*scale + m42*scale + m43*scale , m44*scale
+        };
+    }
+    
+    F32 determinant(){
+        return
+            m11*m22*m33*m44 + m12*m23*m31*m44 + m13*m21*m32*m44 - m11*m23*m32*m44 -
+            m12*m21*m33*m44 - m13*m22*m31*m44;
+//           http://www.cg.info.hiroshima-cu.ac.jp/~miyazaki/knowledge/teche23.html
+    }
+    
+    TransMatrix inverse(){
+        return {};
     }
     
     B8 equals(TransMatrix m){
@@ -130,12 +151,8 @@ struct TransMatrix{
         F32Equal(m11, m.m11) && F32Equal(m12, m.m12) && F32Equal(m13, m.m13) &&
         F32Equal(m21, m.m21) && F32Equal(m22, m.m22) && F32Equal(m23, m.m23) &&
         F32Equal(m31, m.m31) && F32Equal(m32, m.m32) && F32Equal(m33, m.m33) &&
-        F32Equal(m41, m.m41) && F32Equal(m42, m.m42) && F32Equal(m43, m.m43);
+        F32Equal(m41, m.m41) && F32Equal(m42, m.m42) && F32Equal(m43, m.m43) && F32Equal(m44, m.m44);
     }
-};
-
-class Math{
-    
 };
 
 #endif /* Math_hpp */

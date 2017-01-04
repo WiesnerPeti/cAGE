@@ -10,6 +10,7 @@
 #define Assertion_h
 
 #include <iostream>
+#include <math.h>
 
 #define ASSERTION_ENABLED 1
 
@@ -21,9 +22,11 @@
     if (expr) {} \
     else \
     {   \
-        std::cout << #expr << __FILE__ << __LINE__ << std::endl; \
+        std::cout << __FUNCTION__ << __FILE__ << __LINE__ << "  " << #expr << std::endl; \
         debugBreak(); \
     }\
+
+#define ASSERTF32Equal(expr, value) ASSERT(fabsf(expr - value) < 0.001)
 
 #else
 

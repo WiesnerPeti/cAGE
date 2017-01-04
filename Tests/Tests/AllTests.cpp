@@ -38,3 +38,20 @@ void Tests::testVectorSubstraction(){
     ASSERT(v1.equals({1,1,1}));
 }
 
+void Tests::testVectorMagnitude(){
+    
+    Vector v = {1,2,3};
+    
+    F32 m = v.magnitudeP2();
+    
+    ASSERTF32Equal(m, 14);
+}
+
+void Tests::testVectorProduct(){
+    Vector v1 = {3,1,2};
+    Vector v2 = {2,1,3};
+    
+    F32 p = v1.product(v2);
+    
+    ASSERTF32Equal(p, 13);
+}

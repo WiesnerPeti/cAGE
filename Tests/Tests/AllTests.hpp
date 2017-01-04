@@ -15,6 +15,8 @@ public:
     static void testVectorMultiplication();
     static void testVectorAddition();
     static void testVectorSubstraction();
+    static void testVectorMagnitude();
+    static void testVectorProduct();
 };
 
 #endif /* AllTests_hpp */

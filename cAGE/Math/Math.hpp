@@ -42,6 +42,15 @@ struct Vector{
         z -= v.z;
     }
     
+    //To avoid using too much sqrt, we return the power of two
+    F32 magnitudeP2(){
+        return x*x + y*y + z*z;
+    }
+    
+    F32 product(Vector v){
+        return x*v.x + y*v.y + z*v.z;
+    }
+    
     bool equals(Vector v){
         return fabsf(x-v.x) < 0.0001 && fabsf(y-v.y) < 0.0001 && fabsf(z-v.z) < 0.0001;
     }

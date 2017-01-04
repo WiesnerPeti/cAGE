@@ -15,7 +15,7 @@
 
 #if ASSERTION_ENABLED
 
-#define debugBreak() asm { int 3 }
+#define debugBreak() __asm { int 3 }
 
 #define ASSERT(expr) \
     if (expr) {} \

@@ -13,6 +13,8 @@ class Tests {
     
 public:
     static void testVectorMultiplication();
+    static void testVectorAddition();
+    static void testVectorSubstraction();
 };
 
 #endif /* AllTests_hpp */

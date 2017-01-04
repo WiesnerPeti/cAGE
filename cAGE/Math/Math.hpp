@@ -9,6 +9,8 @@
 #ifndef Math_hpp
 #define Math_hpp
 
+#include <math.h>
+
 #include "Types.h"
 
 struct Point{
@@ -26,6 +28,22 @@ struct Vector{
         x *= scale;
         y *= scale;
         z *= scale;
+    }
+    
+    void add(Vector v){
+        x += v.x;
+        y += v.y;
+        z += v.z;
+    }
+    
+    void substract(Vector v){
+        x -= v.x;
+        y -= v.y;
+        z -= v.z;
+    }
+    
+    bool equals(Vector v){
+        return fabsf(x-v.x) < 0.0001 && fabsf(y-v.y) < 0.0001 && fabsf(z-v.z) < 0.0001;
     }
 };
 

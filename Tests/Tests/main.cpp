@@ -12,6 +12,8 @@
 int main(int argc, const char * argv[]) {
     
     Tests::testVectorMultiplication();
+    Tests::testVectorAddition();
+    Tests::testVectorSubstraction();
     
     return 0;
 }

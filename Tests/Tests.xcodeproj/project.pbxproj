@@ -65,8 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				EEE7CA861E1D5CED002FBAF5 /* main.cpp */,
-				EEE7CA8D1E1D5D0F002FBAF5 /* AllTests.cpp */,
 				EEE7CA8E1E1D5D0F002FBAF5 /* AllTests.hpp */,
+				EEE7CA8D1E1D5D0F002FBAF5 /* AllTests.cpp */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

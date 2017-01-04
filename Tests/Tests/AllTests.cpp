@@ -15,27 +15,21 @@ void Tests::testVectorMultiplication()
 {
     Vector v = {1,1,1};
     
-    v.multiply(5);
-    
-    ASSERT(v.equals({5,5,5}));
+    ASSERT(v.multiply(5).equals({5,5,5}));
 }
 
 void Tests::testVectorAddition(){
     Vector v1 = {1,1,1};
     Vector v2 = {2,2,2};
     
-    v1.add(v2);
-    
-    ASSERT(v1.equals({3,3,3}));
+    ASSERT(v1.add(v2).equals({3,3,3}));
 }
 
 void Tests::testVectorSubstraction(){
     Vector v1 = {2,2,2};
     Vector v2 = {1,1,1};
     
-    v1.substract(v2);
-    
-    ASSERT(v1.equals({1,1,1}));
+    ASSERT(v1.substract(v2).equals({1,1,1}));
 }
 
 void Tests::testVectorMagnitude(){

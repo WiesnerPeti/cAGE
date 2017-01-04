@@ -24,22 +24,16 @@ struct Vector{
     F32 y;
     F32 z;
     
-    void multiply(F32 scale){
-        x *= scale;
-        y *= scale;
-        z *= scale;
+    Vector multiply(F32 scale){
+        return {x*scale , y*scale, z *scale};
     }
     
-    void add(Vector v){
-        x += v.x;
-        y += v.y;
-        z += v.z;
+    Vector add(Vector v){
+        return {x+v.x, y+v.y, z+v.z};
     }
     
-    void substract(Vector v){
-        x -= v.x;
-        y -= v.y;
-        z -= v.z;
+    Vector substract(Vector v){
+        return {x-v.x, y-v.y, z-v.z};
     }
     
     //To avoid using too much sqrt, we return the power of two

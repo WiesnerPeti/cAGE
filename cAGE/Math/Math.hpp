@@ -117,6 +117,17 @@ struct TransMatrix{
         };
     }
     
+    static TransMatrix invalidTransMatrix(){
+        
+        static TransMatrix invalid = {
+            NAN, NAN, NAN,
+            NAN, NAN, NAN,
+            NAN, NAN, NAN,
+            NAN, NAN, NAN
+        };
+        return invalid;
+    }
+    
     TransMatrix multiply(TransMatrix m){
         return {
                 m11*m.m11 + m12*m.m21 + m13*m.m31 ,m11*m.m21 + m12*m.m22 + m13*m.m23 ,m11*m.m31 + m12*m.m32 + m13*m.m33 ,
@@ -143,7 +154,38 @@ struct TransMatrix{
     }
     
     TransMatrix inverse(){
-        return {};
+        
+        F32 det = determinant();
+        
+        if(F32Equal(det, 0))
+        {
+            return invalidTransMatrix();
+        }
+        
+        return LUDecomposition().multiply(1/det);
+    }
+    
+    TransMatrix LUDecomposition(){
+        F32 b11 = m22*m33*m44 + m23*0*m42 + 0*m32*m43 - m22*0*m43 - m23*m32*m44 - 0*m33*m42;
+        F32 b12 = m12*0*m43 + m13*m32*m44 + 0*m33*m42 - m12*m33*m44 - m12*0*m42 - 0*m32*m43;
+        F32 b13 = m12*m23*m44 + m13*0*m42 + 0*m22*m43 - m12*0*m43 - m13*m22*m44 - 0*m23*m42;
+        F32 b21 = m21*0*m43 + m23*m31*m44 + 0*m33*m41 - m21*m33*m44 - m23*0*m41  - 0*m31*m43;
+        F32 b22 = m11*m33*m44 + m13*0*m41 + 0*m31*m43 - m11*0*m43 - m13*m31*m44 - 0*m33*m41;
+        F32 b23 = m11*0*m42 + m13*m21*m44 + 0*m23*m41 - m11*m23*m44 - m13*0*m41 - 0*m21*m43;
+        F32 b31;
+        F32 b32;
+        F32 b33;
+        F32 b41;
+        F32 b42;
+        F32 b43;
+        F32 b44;
+        
+        return {
+            b11, b12, b13,
+            b21, b22, b23,
+            b31, b32, b33,
+            b41, b42, b43,
+        };
     }
     
     B8 equals(TransMatrix m){

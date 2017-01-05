@@ -159,10 +159,28 @@ void MatrixTests::testMatrixPureTranslateInverse(){
 }
 
 void MatrixTests::testMatrixVectorZAxisRotation(){
-    Vector v = {1,0,0};
+    Vector v = {1,0,0,1};
     TransMatrix r = TransMatrix::rotationTransform({0,0,M_PI});
     
     Vector result = r.multiply_left(v);
     
     ASSERT(result.equals({-1,0,0}));
+}
+
+void MatrixTests::testMatrixVectorScale(){
+    Vector v = {1,2,3,1};
+    TransMatrix r = TransMatrix::scaleTransform({1,2,3});
+    
+    Vector result = r.multiply_left(v);
+    
+    ASSERT(result.equals({1,4,9}));
+}
+
+void MatrixTests::testMatrixVectorTranslate(){
+    Vector v = {1,2,3,1};
+    TransMatrix r = TransMatrix::translateTransform({-1,-2,-3});
+    
+    Vector result = r.multiply_left(v);
+    
+    ASSERT(result.equals({0,0,0}));
 }

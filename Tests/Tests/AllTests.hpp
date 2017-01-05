@@ -31,6 +31,8 @@ public:
     static void testMatrixPureScaleInverse();
     static void testMatrixPureTranslateInverse();
     static void testMatrixVectorZAxisRotation();
+    static void testMatrixVectorScale();
+    static void testMatrixVectorTranslate();
 };
 
 #endif /* AllTests_hpp */

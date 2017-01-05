@@ -81,15 +81,15 @@ struct Vector{
     }
     
     static Vector i(){
-        return {1,0,0};
+        return {1,0,0,1};
     }
     
     static Vector j(){
-        return {0,1,0};
+        return {0,1,0,1};
     }
     
     static Vector k(){
-        return {0,0,1};
+        return {0,0,1,1};
     }
 };
 
@@ -217,9 +217,9 @@ struct TransMatrix{
     Vector multiply_left(Vector v){
         return {
             v.x*m11 + v.y*m21 + v.z*m31 + v.w*m41,
-            v.x*m21 + v.y*m22 + v.z*m32 + v.w*m42,
-            v.x*m31 + v.y*m32 + v.z*m33 + v.w*m43,
-            v.x*m41 + v.y*m42 + v.z*m43 + v.w*m44
+            v.x*m12 + v.y*m22 + v.z*m32 + v.w*m42,
+            v.x*m13 + v.y*m23 + v.z*m33 + v.w*m43,
+            v.x*m14 + v.y*m24 + v.z*m34 + v.w*m44
         };
     }
     

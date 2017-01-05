@@ -25,6 +25,8 @@ int main(int argc, const char * argv[]) {
     MatrixTests::testMatrixInverse();
     MatrixTests::testMatrixPureScaleInverse();
     MatrixTests::testMatrixVectorZAxisRotation();
+    MatrixTests::testMatrixVectorScale();
+    MatrixTests::testMatrixVectorTranslate();
     
     return 0;
 }

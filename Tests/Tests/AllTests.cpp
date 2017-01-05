@@ -141,3 +141,19 @@ void MatrixTests::testMatrixPureScaleInverse(){
         0,0,0,1
     }));
 }
+
+void MatrixTests::testMatrixPureTranslateInverse(){
+    TransMatrix m = {
+        1,0,0,0,
+        0,1,0,0,
+        0,0,1,0,
+        3,4,5,0
+    };
+    
+    ASSERT(m.pureTranslateInverse().equals({
+        1,0,0,0,
+        0,1,0,0,
+        0,0,1,0,
+        -3,-4,-5,0
+    }));
+}

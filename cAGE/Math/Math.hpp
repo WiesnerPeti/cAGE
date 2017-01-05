@@ -235,6 +235,16 @@ struct TransMatrix{
         };
     }
     
+    TransMatrix pureTranslateInverse()
+    {
+        return {
+            1,0,0,0,
+            0,1,0,0,
+            0,0,1,0,
+            -m41,-m42,-m43,1
+        };
+    }
+    
     B8 equals(TransMatrix m){
         return
         F32Equal(m11, m.m11) && F32Equal(m12, m.m12) && F32Equal(m13, m.m13) && F32Equal(m14, m.m14) &&

@@ -29,6 +29,7 @@ public:
     static void testMatrixDeterminant();
     static void testMatrixInverse();
     static void testMatrixPureScaleInverse();
+    static void testMatrixPureTranslateInverse();
 };
 
 #endif /* AllTests_hpp */

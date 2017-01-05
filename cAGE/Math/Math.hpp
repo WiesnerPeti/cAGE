@@ -187,21 +187,21 @@ struct TransMatrix{
     TransMatrix multiply(TransMatrix m){
         return {
             m11*m.m11 + m12*m.m21 + m13*m.m31 + m14*m.m41,
-                m11*m.m21 + m12*m.m22 + m13*m.m23 + m14*m.m24,
-                    m11*m.m31 + m12*m.m32 + m13*m.m33 + m14*m.m34,
-                        m11*m.m41 + m12*m.m42 + m13*m.m43 + m14*m.m44,
-            m21*m.m11 + m22*m.m21 + m23*m.m31 + m21*m.m41,
-                m21*m.m21 + m22*m.m22 + m23*m.m23 + m24*m.m24,
-                    m21*m.m31 + m22*m.m32 + m23*m.m33 + m24*m.m34,
-                        m21*m.m41 + m22*m.m42 + m23*m.m43 + m24*m.m44,
-            m31*m.m11 + m32*m.m21 + m33*m.m31 + m31*m.m41,
-                m31*m.m21 + m32*m.m22 + m33*m.m23 + m34*m.m24,
-                    m31*m.m31 + m32*m.m32 + m33*m.m33 + m34*m.m34,
-                        m31*m.m41 + m32*m.m42 + m33*m.m43 + m34*m.m44,
+                m11*m.m12 + m12*m.m22 + m13*m.m32 + m14*m.m42,
+                    m11*m.m13 + m12*m.m23 + m13*m.m33 + m14*m.m43,
+                        m11*m.m14 + m12*m.m24 + m13*m.m34 + m14*m.m44,
+            m21*m.m11 + m22*m.m21 + m23*m.m31 + m24*m.m41,
+                m21*m.m12 + m22*m.m22 + m23*m.m32 + m24*m.m42,
+                    m21*m.m13 + m22*m.m23 + m23*m.m33 + m24*m.m43,
+                        m21*m.m14 + m22*m.m24 + m23*m.m34 + m24*m.m44,
+            m31*m.m11 + m32*m.m21 + m33*m.m31 + m34*m.m41,
+                m31*m.m12 + m32*m.m22 + m33*m.m32 + m34*m.m42,
+                    m31*m.m13 + m32*m.m23 + m33*m.m33 + m34*m.m43,
+                        m31*m.m14 + m32*m.m24 + m33*m.m34 + m34*m.m44,
             m41*m.m11 + m42*m.m21 + m43*m.m31 + m44*m.m41,
-                m41*m.m21 + m42*m.m22 + m43*m.m23 + m44*m.m24,
-                    m41*m.m31 + m42*m.m32 + m43*m.m33 + m44*m.m34,
-                        m41*m.m41 + m42*m.m42 + m43*m.m43 + m44*m.m44
+                m41*m.m12 + m42*m.m22 + m43*m.m32 + m44*m.m42,
+                    m41*m.m13 + m42*m.m23 + m43*m.m33 + m44*m.m43,
+                        m41*m.m14 + m42*m.m24 + m43*m.m34 + m44*m.m44
                 };
     }
     

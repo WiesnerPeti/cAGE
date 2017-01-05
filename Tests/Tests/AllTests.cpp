@@ -85,11 +85,25 @@ void MatrixTests::testMatrixMultiplication(){
 
 void MatrixTests::testMatrixDeterminant(){
     TransMatrix m = {
-        1,2,3,
-        4,6,6,
-        7,8,9,
-        10,11,12,1
+        1,2,3,4,
+        5,6,6,8,
+        9,10,11,12,
+        13,14,15,1
     };
     
-    ASSERTF32Equal(m.determinant(), -12);
+    ASSERTF32Equal(m.determinant(), 120);
+}
+
+void MatrixTests::testMatrixInverse(){
+    TransMatrix m = {
+        1,2,3,4,
+        5,6,6,8,
+        9,10,11,12,
+        13,14,15,1
+    };
+    
+    TransMatrix inverseM = m.inverse();
+    TransMatrix result = m.multiply(inverseM);
+    
+    ASSERT(result.equals(TransMatrix::identity()));
 }

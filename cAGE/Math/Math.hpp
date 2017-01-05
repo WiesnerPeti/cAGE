@@ -92,17 +92,19 @@ struct Vector{
     }
 };
 
-//Using 4x3+1 index matrixes to save memory, rightmost column is always [0, 0, 0, 1], last item is saved due to scalar multiplication
 struct TransMatrix{
     F32 m11;
     F32 m12;
     F32 m13;
+    F32 m14;
     F32 m21;
     F32 m22;
     F32 m23;
+    F32 m24;
     F32 m31;
     F32 m32;
     F32 m33;
+    F32 m34;
     F32 m41;
     F32 m42;
     F32 m43;
@@ -110,9 +112,9 @@ struct TransMatrix{
     
     static TransMatrix identity(){
         return {
-            1,0,0,
-            0,1,0,
-            0,0,1,
+            1,0,0,0,
+            0,1,0,0,
+            0,0,1,0,
             0,0,0,1
         };
     }
@@ -120,37 +122,51 @@ struct TransMatrix{
     static TransMatrix invalidTransMatrix(){
         
         static TransMatrix invalid = {
-            NAN, NAN, NAN,
-            NAN, NAN, NAN,
-            NAN, NAN, NAN,
-            NAN, NAN, NAN
+            NAN, NAN, NAN, NAN,
+            NAN, NAN, NAN, NAN,
+            NAN, NAN, NAN, NAN,
+            NAN, NAN, NAN, NAN
         };
         return invalid;
     }
     
     TransMatrix multiply(TransMatrix m){
         return {
-                m11*m.m11 + m12*m.m21 + m13*m.m31 ,m11*m.m21 + m12*m.m22 + m13*m.m23 ,m11*m.m31 + m12*m.m32 + m13*m.m33 ,
-                m21*m.m11 + m22*m.m21 + m23*m.m31 ,m21*m.m21 + m22*m.m22 + m23*m.m23 ,m21*m.m31 + m22*m.m32 + m23*m.m33 ,
-                m31*m.m11 + m32*m.m21 + m33*m.m31 ,m31*m.m21 + m32*m.m22 + m33*m.m23 ,m31*m.m31 + m32*m.m32 + m33*m.m33 ,
-                m41*m.m11 + m42*m.m21 + m43*m.m31 ,m41*m.m21 + m42*m.m22 + m43*m.m23 ,m41*m.m31 + m42*m.m32 + m43*m.m33 , m44*m.m44
+            m11*m.m11 + m12*m.m21 + m13*m.m31 + m14*m.m41,
+                m11*m.m21 + m12*m.m22 + m13*m.m23 + m14*m.m24,
+                    m11*m.m31 + m12*m.m32 + m13*m.m33 + m14*m.m34,
+                        m11*m.m41 + m12*m.m42 + m13*m.m43 + m14*m.m44,
+            m21*m.m11 + m22*m.m21 + m23*m.m31 + m21*m.m41,
+                m21*m.m21 + m22*m.m22 + m23*m.m23 + m24*m.m24,
+                    m21*m.m31 + m22*m.m32 + m23*m.m33 + m24*m.m34,
+                        m21*m.m41 + m22*m.m42 + m23*m.m43 + m24*m.m44,
+            m31*m.m11 + m32*m.m21 + m33*m.m31 + m31*m.m41,
+                m31*m.m21 + m32*m.m22 + m33*m.m23 + m34*m.m24,
+                    m31*m.m31 + m32*m.m32 + m33*m.m33 + m34*m.m34,
+                        m31*m.m41 + m32*m.m42 + m33*m.m43 + m34*m.m44,
+            m41*m.m11 + m42*m.m21 + m43*m.m31 + m44*m.m41,
+                m41*m.m21 + m42*m.m22 + m43*m.m23 + m44*m.m24,
+                    m41*m.m31 + m42*m.m32 + m43*m.m33 + m44*m.m34,
+                        m41*m.m41 + m42*m.m42 + m43*m.m43 + m44*m.m44
                 };
     }
     
     TransMatrix multiply(F32 scale){
         return {
-            m11*scale + m12*scale + m13*scale ,m11*scale + m12*scale + m13*scale ,m11*scale + m12*scale + m13*scale ,
-            m21*scale + m22*scale + m23*scale ,m21*scale + m22*scale + m23*scale ,m21*scale + m22*scale + m23*scale ,
-            m31*scale + m32*scale + m33*scale ,m31*scale + m32*scale + m33*scale ,m31*scale + m32*scale + m33*scale ,
-            m41*scale + m42*scale + m43*scale ,m41*scale + m42*scale + m43*scale ,m41*scale + m42*scale + m43*scale , m44*scale
+            m11*scale, m12*scale, m13*scale, m14*scale,
+            m21*scale, m22*scale, m23*scale, m24*scale,
+            m31*scale, m32*scale, m33*scale, m34*scale,
+            m41*scale, m42*scale, m43*scale, m44*scale
         };
     }
     
-    F32 determinant(){
-        return
-            m11*m22*m33*m44 + m12*m23*m31*m44 + m13*m21*m32*m44 - m11*m23*m32*m44 -
-            m12*m21*m33*m44 - m13*m22*m31*m44;
-//           http://www.cg.info.hiroshima-cu.ac.jp/~miyazaki/knowledge/teche23.html
+    TransMatrix transpose(){
+        return {
+                m11, m21, m31, m41,
+                m12, m22, m32, m42,
+                m13, m23, m33, m43,
+                m14, m24, m34, m44
+                };
     }
     
     TransMatrix inverse(){
@@ -165,34 +181,55 @@ struct TransMatrix{
         return LUDecomposition().multiply(1/det);
     }
     
+    F32 determinant(){
+//           http://www.cg.info.hiroshima-cu.ac.jp/~miyazaki/knowledge/teche23.html
+        return
+        m11*m22*m33*m44 + m11*m23*m34*m42 + m11*m24*m32*m43 +
+        m12*m21*m34*m43 + m12*m23*m31*m44 + m12*m24*m33*m41 +
+        m13*m21*m32*m44 + m13*m22*m34*m41 + m13*m24*m31*m42 +
+        m14*m21*m33*m42 + m14*m22*m31*m43 + m14*m23*m32*m41 -
+        m11*m22*m34*m43 - m11*m23*m32*m44 - m11*m24*m33*m42 -
+        m12*m21*m33*m44 - m12*m23*m34*m41 - m12*m24*m31*m43 -
+        m13*m21*m34*m42 - m13*m22*m31*m44 - m13*m24*m32*m41 -
+        m14*m21*m32*m43 - m14*m22*m33*m41 - m14*m23*m31*m42;
+    }
+    
     TransMatrix LUDecomposition(){
-        F32 b11 = m22*m33*m44 + m23*0*m42 + 0*m32*m43 - m22*0*m43 - m23*m32*m44 - 0*m33*m42;
-        F32 b12 = m12*0*m43 + m13*m32*m44 + 0*m33*m42 - m12*m33*m44 - m12*0*m42 - 0*m32*m43;
-        F32 b13 = m12*m23*m44 + m13*0*m42 + 0*m22*m43 - m12*0*m43 - m13*m22*m44 - 0*m23*m42;
-        F32 b21 = m21*0*m43 + m23*m31*m44 + 0*m33*m41 - m21*m33*m44 - m23*0*m41  - 0*m31*m43;
-        F32 b22 = m11*m33*m44 + m13*0*m41 + 0*m31*m43 - m11*0*m43 - m13*m31*m44 - 0*m33*m41;
-        F32 b23 = m11*0*m42 + m13*m21*m44 + 0*m23*m41 - m11*m23*m44 - m13*0*m41 - 0*m21*m43;
-        F32 b31;
-        F32 b32;
-        F32 b33;
-        F32 b41;
-        F32 b42;
-        F32 b43;
-        F32 b44;
+        F32 b11 = m22*m33*m44 + m23*m34*m42 + m24*m32*m43 - m22*m34*m43 - m23*m32*m44 - m24*m33*m42;
+        F32 b12 = m12*m34*m43 + m13*m32*m44 + m14*m33*m42 - m12*m33*m44 - m13*m34*m42 - m14*m32*m43;
+        F32 b13 = m12*m23*m44 + m13*m24*m42 + m14*m22*m43 - m12*m24*m43 - m13*m22*m44 - m14*m23*m42;
+        F32 b14 = m12*m24*m33 + m13*m22*m34 + m14*m23*m32 - m12*m23*m34 - m13*m24*m32 - m14*m22*m33;
+        F32 b21 = m21*m34*m43 + m23*m31*m44 + m24*m33*m41 - m21*m33*m44 - m23*m34*m41 - m24*m31*m43;
+        F32 b22 = m11*m33*m44 + m13*m34*m41 + m14*m31*m43 - m11*m34*m43 - m13*m31*m44 - m14*m33*m41;
+        F32 b23 = m11*m24*m43 + m13*m21*m44 + m14*m23*m41 - m11*m23*m44 - m13*m24*m41 - m14*m21*m43;
+        F32 b24 = m11*m23*m34 + m13*m24*m31 + m14*m21*m33 - m11*m24*m33 - m13*m21*m34 - m14*m23*m31;
+        F32 b31 = m21*m32*m44 + m22*m34*m41 + m24*m31*m42 - m21*m34*m42 - m22*m31*m44 - m24*m32*m41;
+        F32 b32 = m11*m34*m42 + m12*m31*m44 + m14*m32*m41 - m11*m32*m44 - m12*m34*m41 - m14*m31*m42;
+        F32 b33 = m11*m22*m44 + m12*m24*m41 + m14*m21*m42 - m11*m24*m42 - m12*m21*m44 - m14*m22*m41;
+        F32 b34 = m11*m24*m32 + m12*m21*m34 + m14*m22*m31 - m11*m22*m34 - m12*m24*m31 - m14*m21*m32;
+        F32 b41 = m21*m33*m42 + m22*m31*m43 + m23*m32*m41 - m21*m32*m43 - m22*m33*m41 - m23*m31*m42;
+        F32 b42 = m11*m32*m43 + m12*m33*m41 + m13*m31*m42 - m11*m33*m42 - m12*m31*m43 - m13*m32*m41;
+        F32 b43 = m11*m23*m42 + m12*m21*m43 + m13*m22*m41 - m11*m22*m43 - m12*m23*m41 - m13*m21*m42;
+        F32 b44 = m11*m22*m33 + m12*m23*m31 + m13*m21*m32 - m11*m23*m32 - m12*m21*m33 - m13*m22*m31;
         
         return {
-            b11, b12, b13,
-            b21, b22, b23,
-            b31, b32, b33,
-            b41, b42, b43,
+            b11, b12, b13, b14,
+            b21, b22, b23, b24,
+            b31, b32, b33, b34,
+            b41, b42, b43, b44
         };
+    }
+    
+    TransMatrix pureRotationInverse()
+    {
+        return transpose();
     }
     
     B8 equals(TransMatrix m){
         return
-        F32Equal(m11, m.m11) && F32Equal(m12, m.m12) && F32Equal(m13, m.m13) &&
-        F32Equal(m21, m.m21) && F32Equal(m22, m.m22) && F32Equal(m23, m.m23) &&
-        F32Equal(m31, m.m31) && F32Equal(m32, m.m32) && F32Equal(m33, m.m33) &&
+        F32Equal(m11, m.m11) && F32Equal(m12, m.m12) && F32Equal(m13, m.m13) && F32Equal(m14, m.m14) &&
+        F32Equal(m21, m.m21) && F32Equal(m22, m.m22) && F32Equal(m23, m.m23) && F32Equal(m24, m.m24) &&
+        F32Equal(m31, m.m31) && F32Equal(m32, m.m32) && F32Equal(m33, m.m33) && F32Equal(m34, m.m34) &&
         F32Equal(m41, m.m41) && F32Equal(m42, m.m42) && F32Equal(m43, m.m43) && F32Equal(m44, m.m44);
     }
 };

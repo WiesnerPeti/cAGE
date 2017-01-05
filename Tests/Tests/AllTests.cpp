@@ -157,3 +157,12 @@ void MatrixTests::testMatrixPureTranslateInverse(){
         -3,-4,-5,0
     }));
 }
+
+void MatrixTests::testMatrixVectorZAxisRotation(){
+    Vector v = {1,0,0};
+    TransMatrix r = TransMatrix::rotationTransform({0,0,M_PI});
+    
+    Vector result = r.multiply_left(v);
+    
+    ASSERT(result.equals({-1,0,0}));
+}

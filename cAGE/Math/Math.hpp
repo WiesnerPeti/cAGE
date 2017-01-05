@@ -29,6 +29,7 @@ struct Vector{
     F32 x;
     F32 y;
     F32 z;
+    F32 w;
     
     Vector multiply(F32 scale){
         return {x*scale , y*scale, z *scale};
@@ -119,6 +120,59 @@ struct TransMatrix{
         };
     }
     
+    static TransMatrix translateTransform(Vector t){
+        return {
+            1,0,0,0,
+            0,1,0,0,
+            0,0,1,0,
+            t.x,t.y,t.z,1
+        };
+    }
+    
+    static TransMatrix scaleTransform(Vector s){
+        return {
+            s.x,0,0,0,
+            0,s.y,0,0,
+            0,0,s.z,0,
+            0,0,0,1
+        };
+    }
+    
+    static TransMatrix rotationTransform(Vector r){
+        
+        TransMatrix m = TransMatrix::identity();
+        
+        if(F32Equal(r.x, 0) == false)
+        {
+            m = m.multiply({
+                1,0,0,0,
+                0,cosf(r.x),sinf(r.x),0,
+                0,-sinf(r.x),cosf(r.x),0,
+                0,0,0,1
+            });
+        }
+        if(F32Equal(r.y, 0) == false)
+        {
+            m = m.multiply({
+                cosf(r.y),0,-sinf(r.y),0,
+                0,1,0,0,
+                sinf(r.y),0,cosf(r.y),0,
+                0,0,0,1
+            });
+        }
+        if(F32Equal(r.z, 0) == false)
+        {
+            m = m.multiply({
+                cosf(r.z),sinf(r.z),0,0,
+                -sinf(r.z),cosf(r.z),0,0,
+                0,0,1,0,
+                0,0,0,1
+            });
+        }
+        
+        return m;
+    }
+    
     static TransMatrix invalidTransMatrix(){
         
         static TransMatrix invalid = {
@@ -157,6 +211,15 @@ struct TransMatrix{
             m21*scale, m22*scale, m23*scale, m24*scale,
             m31*scale, m32*scale, m33*scale, m34*scale,
             m41*scale, m42*scale, m43*scale, m44*scale
+        };
+    }
+    
+    Vector multiply_left(Vector v){
+        return {
+            v.x*m11 + v.y*m21 + v.z*m31 + v.w*m41,
+            v.x*m21 + v.y*m22 + v.z*m32 + v.w*m42,
+            v.x*m31 + v.y*m32 + v.z*m33 + v.w*m43,
+            v.x*m41 + v.y*m42 + v.z*m43 + v.w*m44
         };
     }
     

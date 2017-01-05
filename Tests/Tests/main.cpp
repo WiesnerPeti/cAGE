@@ -21,6 +21,7 @@ int main(int argc, const char * argv[]) {
     
     MatrixTests::testMatrixMultiplication();
     MatrixTests::testMatrixDeterminant();
+    MatrixTests::testMatrixTranspose();
     MatrixTests::testMatrixInverse();
     
     return 0;

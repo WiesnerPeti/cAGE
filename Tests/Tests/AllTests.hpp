@@ -25,6 +25,7 @@ class MatrixTests {
     
 public:
     static void testMatrixMultiplication();
+    static void testMatrixTranspose();
     static void testMatrixDeterminant();
     static void testMatrixInverse();
 };

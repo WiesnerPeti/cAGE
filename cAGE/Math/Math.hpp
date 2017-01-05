@@ -225,6 +225,16 @@ struct TransMatrix{
         return transpose();
     }
     
+    TransMatrix pureScaleInverse()
+    {
+        return {
+                1/m11 ?: 1,0,0,0,
+                0,1/m22 ?: 1,0,0,
+                0,0,1/m33 ?: 1,0,
+                0,0,0,1
+        };
+    }
+    
     B8 equals(TransMatrix m){
         return
         F32Equal(m11, m.m11) && F32Equal(m12, m.m12) && F32Equal(m13, m.m13) && F32Equal(m14, m.m14) &&

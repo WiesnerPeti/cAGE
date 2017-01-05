@@ -23,6 +23,7 @@ int main(int argc, const char * argv[]) {
     MatrixTests::testMatrixDeterminant();
     MatrixTests::testMatrixTranspose();
     MatrixTests::testMatrixInverse();
+    MatrixTests::testMatrixPureScaleInverse();
     
     return 0;
 }

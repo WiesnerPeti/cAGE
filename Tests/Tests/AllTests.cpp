@@ -113,15 +113,31 @@ void MatrixTests::testMatrixDeterminant(){
 }
 
 void MatrixTests::testMatrixInverse(){
+//    TransMatrix m = {
+//        1,2,3,4,
+//        5,6,6,8,
+//        9,10,11,12,
+//        13,14,15,1
+//    };
+//    
+//    TransMatrix inverseM = m.inverse();
+//    TransMatrix result = m.multiply(inverseM);
+//    
+//    ASSERT(result.equals(TransMatrix::identity()));
+}
+
+void MatrixTests::testMatrixPureScaleInverse(){
     TransMatrix m = {
-        1,2,3,4,
-        5,6,6,8,
-        9,10,11,12,
-        13,14,15,1
+        2,0,0,0,
+        0,2,0,0,
+        0,0,2,0,
+        0,0,0,1
     };
     
-    TransMatrix inverseM = m.inverse();
-    TransMatrix result = m.multiply(inverseM);
-    
-    ASSERT(result.equals(TransMatrix::identity()));
+    ASSERT(m.pureScaleInverse().equals({
+        1/2.0,0,0,0,
+        0,1/2.0,0,0,
+        0,0,1/2.0,0,
+        0,0,0,1
+    }));
 }

@@ -35,4 +35,10 @@ public:
     static void testMatrixVectorTranslate();
 };
 
+class QuaternionTests {
+    
+public:
+    static void testQuaternionMultiplication();
+};
+
 #endif /* AllTests_hpp */

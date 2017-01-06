@@ -198,3 +198,13 @@ void MatrixTests::testMatrixVectorTranslate(){
     
     ASSERT(result.equals({0,0,0}));
 }
+
+#pragma mark - Quaternion
+void QuaternionTests::testQuaternionMultiplication(){
+    Quaternion q1 = {1,2,3,4};
+    Quaternion q2 = {4,3,2,1};
+    
+    Quaternion r = q1.multiply(q2);
+    
+    ASSERT(r.equals({12,24,6,-12}));
+}

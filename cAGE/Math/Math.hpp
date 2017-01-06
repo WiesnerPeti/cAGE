@@ -323,6 +323,11 @@ struct Quaternion{
     F32 z;
     F32 s;
     
+    static Quaternion invalidQuaternion(){
+        static Quaternion invalid = {NAN, NAN, NAN, NAN};
+        return invalid;
+    }
+    
     Quaternion multiply(Quaternion p){
         
         return {
@@ -331,6 +336,30 @@ struct Quaternion{
             z*p.s - y*p.x + x*p.y + s*p.z,
             s*p.s - x*p.x - y*p.y - z*p.z
         };
+    }
+    
+    Quaternion multiply(F32 scale){
+        return {x*scale,y*scale,z*scale,s*scale};
+    }
+    
+    Quaternion conjugate(){
+        return {-x,-y,-z,s};
+    }
+    
+    F32 magnitudeP2(){
+        return x*x + y*y + z*z + s*s;
+    }
+    
+    Quaternion inverse(){
+        
+        F32 magnitude = magnitudeP2();
+        
+        if(F32Equal(magnitude, 0))
+        {
+            return invalidQuaternion();
+        }
+        
+        return conjugate().multiply(1/magnitude);
     }
     
     B8 equals(Quaternion q){

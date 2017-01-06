@@ -208,3 +208,11 @@ void QuaternionTests::testQuaternionMultiplication(){
     
     ASSERT(r.equals({12,24,6,-12}));
 }
+
+void QuaternionTests::testQuaternionInverse(){
+    Quaternion q = {1,2,3,4};
+    
+    Quaternion i = q.inverse();
+    
+    ASSERT(i.equals({-1/30.0,-1/15.0,-1/10.0,2/15.0}));
+}

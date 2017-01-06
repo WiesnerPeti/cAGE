@@ -29,6 +29,7 @@ int main(int argc, const char * argv[]) {
     MatrixTests::testMatrixVectorTranslate();
     
     QuaternionTests::testQuaternionMultiplication();
+    QuaternionTests::testQuaternionInverse();
     
     return 0;
 }

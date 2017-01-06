@@ -216,3 +216,26 @@ void QuaternionTests::testQuaternionInverse(){
     
     ASSERT(i.equals({-1/30.0,-1/15.0,-1/10.0,2/15.0}));
 }
+
+void QuaternionTests::testQuaternionRotation(){
+    
+    Quaternion q = Quaternion::quaterion({0,0,1}, M_PI_2);
+    Vector i = Vector::i();
+    Vector j = Vector::j();
+    
+    ASSERT(q.rotate(i).equals(j));
+}
+
+void QuaternionTests::testQuaternionMatrix(){
+    
+    Quaternion q = {2,2,2,2};
+    
+    TransMatrix m = q.matrix();
+    
+    ASSERT(m.equals({
+        0,0,1,0,
+        1,0,0,0,
+        0,1,0,0,
+        0,0,0,1
+    }));
+}

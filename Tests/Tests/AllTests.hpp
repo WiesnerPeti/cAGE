@@ -40,6 +40,8 @@ class QuaternionTests {
 public:
     static void testQuaternionMultiplication();
     static void testQuaternionInverse();
+    static void testQuaternionRotation();
+    static void testQuaternionMatrix();
 };
 
 #endif /* AllTests_hpp */

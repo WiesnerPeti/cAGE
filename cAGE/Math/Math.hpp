@@ -323,6 +323,10 @@ struct Quaternion{
     F32 z;
     F32 s;
     
+    static Quaternion quaterion(Vector a, F32 angle){
+        return {a.x*sinf(angle/2.0), a.y*sinf(angle/2.0), a.z*sinf(angle/2.0), cosf(angle/2.0)};
+    }
+    
     static Quaternion invalidQuaternion(){
         static Quaternion invalid = {NAN, NAN, NAN, NAN};
         return invalid;
@@ -360,6 +364,33 @@ struct Quaternion{
         }
         
         return conjugate().multiply(1/magnitude);
+    }
+    
+    Vector rotate(Vector v){
+        Quaternion qv = {v.x,v.y,v.z,0};
+        
+        Quaternion result = multiply(qv).multiply(inverse());
+        
+        return {result.x, result.y, result.z};
+    }
+    
+    Quaternion normalize(){
+        
+        F32 m = sqrt(magnitudeP2());
+        
+        return {x/m,y/m,z/m,s/m};
+    }
+    
+    TransMatrix matrix(){
+        
+        Quaternion nq = normalize();
+        
+        return {
+            1-2*nq.y*nq.y-2*nq.z*nq.z, 2*nq.x*nq.y - 2*nq.z*nq.s, 2*nq.x*nq.z + 2*nq.y*nq.s, 0,
+            2*nq.x*nq.y+2*nq.z*nq.s, 1 - 2*nq.x*nq.x - 2*nq.z*nq.z, 2*nq.y*nq.z - 2*nq.x*nq.s, 0,
+            2*nq.x*nq.z-2*nq.y*nq.s, 2*nq.y*nq.z + 2*nq.x*nq.s, 1 - 2*nq.x*nq.x - 2*nq.y*nq.y,0,
+            0,0,0,1
+        };
     }
     
     B8 equals(Quaternion q){

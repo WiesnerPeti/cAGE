@@ -30,6 +30,8 @@ int main(int argc, const char * argv[]) {
     
     QuaternionTests::testQuaternionMultiplication();
     QuaternionTests::testQuaternionInverse();
+    QuaternionTests::testQuaternionRotation();
+    QuaternionTests::testQuaternionMatrix();
     
     return 0;
 }

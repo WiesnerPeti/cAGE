@@ -239,3 +239,13 @@ void QuaternionTests::testQuaternionMatrix(){
         0,0,0,1
     }));
 }
+
+void QuaternionTests::testQuaternionLERP(){
+    
+    Quaternion q1 = Quaternion::quaterion({0,0,1}, 0);
+    Quaternion q2 = Quaternion::quaterion({0,0,1}, M_PI_2);
+    
+    Quaternion lerp = q1.LERP(q2, 0.5);
+    
+    ASSERT(lerp.equals(Quaternion::quaterion({0,0,1}, M_PI_4)));
+}

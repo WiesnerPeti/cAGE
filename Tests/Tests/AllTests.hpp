@@ -42,6 +42,7 @@ public:
     static void testQuaternionInverse();
     static void testQuaternionRotation();
     static void testQuaternionMatrix();
+    static void testQuaternionLERP();
 };
 
 #endif /* AllTests_hpp */

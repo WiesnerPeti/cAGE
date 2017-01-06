@@ -393,6 +393,17 @@ struct Quaternion{
         };
     }
     
+    Quaternion LERP(Quaternion q, F32 beta){
+        Quaternion lerp = {
+            (1-beta)*x + beta*q.x,
+            (1-beta)*y + beta*q.y,
+            (1-beta)*z + beta*q.z,
+            (1-beta)*s + beta*q.s,
+        };
+        
+        return lerp.normalize();
+    }
+    
     B8 equals(Quaternion q){
         return F32Equal(x, q.x) && F32Equal(y, q.y) && F32Equal(z, q.z) && F32Equal(s, q.s);
     }

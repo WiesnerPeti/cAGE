@@ -424,8 +424,12 @@ struct Plane{
     Vector n;
     F32 d;
     
+    F32 distance(Point p){
+        return Vector::pointSubstract(p, p0).dotProduct(n);
+    }
+    
     B8 containsPoint(Point p){
-        return F32Equal(Vector::pointSubstract(p, p0).dotProduct(n), 0);
+        return F32Equal(distance(p), 0);
     }
 };
 
@@ -439,6 +443,27 @@ struct AABBox{
         p.x >= Pmin.x && p.x <= Pmax.x &&
         p.y >= Pmin.y && p.y <= Pmax.y &&
         p.z >= Pmin.z && p.x <= Pmax.z;
+    }
+};
+
+struct Frusta{
+    Plane near;
+    Plane far;
+    Plane top;
+    Plane left;
+    Plane bottom;
+    Plane right;
+    
+    Frusta(Plane near,Plane far,Plane top,Plane left,Plane bottom,Plane right) : near(near), far(far), top(top), left(left), bottom(bottom), right(right){}
+    
+    B8 containsPoint(Point p){
+        return
+        near.distance(p) <= 0 &&
+        far.distance(p) <= 0 &&
+        top.distance(p) <= 0 &&
+        left.distance(p) <= 0 &&
+        bottom.distance(p) <= 0 &&
+        right.distance(p) <= 0;
     }
 };
 

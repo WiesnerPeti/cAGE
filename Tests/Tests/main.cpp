@@ -38,5 +38,7 @@ int main(int argc, const char * argv[]) {
     
     AABBoxTests::testBoxContainsPoint();
     
+    FrustaTests::testFrustaContainsPoint();
+    
     return 0;
 }

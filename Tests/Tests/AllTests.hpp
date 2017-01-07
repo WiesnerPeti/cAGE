@@ -54,4 +54,9 @@ class AABBoxTests{
 public:
     static void testBoxContainsPoint();
 };
+
+class FrustaTests{
+public:
+    static void testFrustaContainsPoint();
+};
 #endif /* AllTests_hpp */

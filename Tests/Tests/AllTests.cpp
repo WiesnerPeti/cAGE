@@ -265,3 +265,11 @@ void AABBoxTests::testBoxContainsPoint(){
     ASSERT(b.containsPoint({0.5, 0.5, 0.5}) == true);
     ASSERT(b.containsPoint({2,2,2}) == false);
 }
+
+#pragma mark - Frusta
+void FrustaTests::testFrustaContainsPoint(){
+    Frusta f = Frusta({{0,0,-1},{0,0,-1}},{{0,0,1},{0,0,1}}, {{0,1,0},{0,1,0}}, {{1,0,0},{0,0,0}}, {{0,-1,0},{0,-1,0}}, {{-1,0,0},{-1,0,0}});
+    
+    ASSERT(f.containsPoint({0,0.5,0.5}) == true);
+    ASSERT(f.containsPoint({0,2,0.5}) == false);
+}

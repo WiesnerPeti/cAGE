@@ -50,4 +50,8 @@ public:
     static void testPlaneContainsPoint();
 };
 
+class AABBoxTests{
+public:
+    static void testBoxContainsPoint();
+};
 #endif /* AllTests_hpp */

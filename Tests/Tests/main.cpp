@@ -36,5 +36,7 @@ int main(int argc, const char * argv[]) {
     
     PlaneTests::testPlaneContainsPoint();
     
+    AABBoxTests::testBoxContainsPoint();
+    
     return 0;
 }

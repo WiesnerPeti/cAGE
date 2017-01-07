@@ -257,3 +257,11 @@ void PlaneTests::testPlaneContainsPoint(){
     
     ASSERT(plane.containsPoint(p1));
 }
+
+#pragma mark - Box tests
+void AABBoxTests::testBoxContainsPoint(){
+    AABBox b = {{-1,-1,-1},{1,1,1}};
+    
+    ASSERT(b.containsPoint({0.5, 0.5, 0.5}) == true);
+    ASSERT(b.containsPoint({2,2,2}) == false);
+}

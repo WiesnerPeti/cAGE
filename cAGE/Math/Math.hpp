@@ -429,4 +429,17 @@ struct Plane{
     }
 };
 
+//Axis-Aligned Bounding Box
+struct AABBox{
+    Point Pmin;
+    Point Pmax;
+    
+    B8 containsPoint(Point p){
+        return
+        p.x >= Pmin.x && p.x <= Pmax.x &&
+        p.y >= Pmin.y && p.y <= Pmax.y &&
+        p.z >= Pmin.z && p.x <= Pmax.z;
+    }
+};
+
 #endif /* Math_hpp */

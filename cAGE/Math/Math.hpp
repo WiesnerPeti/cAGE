@@ -31,6 +31,10 @@ struct Vector{
     F32 z;
     F32 w;
     
+    static Vector pointSubstract(Point p1, Point p0){
+        return {p1.x - p0.x, p1.y - p0.y, p1.z - p0.z};
+    }
+    
     Vector multiply(F32 scale){
         return {x*scale , y*scale, z *scale};
     }
@@ -406,6 +410,22 @@ struct Quaternion{
     
     B8 equals(Quaternion q){
         return F32Equal(x, q.x) && F32Equal(y, q.y) && F32Equal(z, q.z) && F32Equal(s, q.s);
+    }
+};
+
+//P = P0 + t*v
+struct Line{
+    Point p0;
+    Vector v;
+};
+
+struct Plane{
+    Point p0;
+    Vector n;
+    F32 d;
+    
+    B8 containsPoint(Point p){
+        return F32Equal(Vector::pointSubstract(p, p0).dotProduct(n), 0);
     }
 };
 

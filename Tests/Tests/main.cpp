@@ -34,5 +34,7 @@ int main(int argc, const char * argv[]) {
     QuaternionTests::testQuaternionMatrix();
     QuaternionTests::testQuaternionLERP();
     
+    PlaneTests::testPlaneContainsPoint();
+    
     return 0;
 }

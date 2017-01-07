@@ -249,3 +249,11 @@ void QuaternionTests::testQuaternionLERP(){
     
     ASSERT(lerp.equals(Quaternion::quaterion({0,0,1}, M_PI_4)));
 }
+
+#pragma mark - Plane tests
+void PlaneTests::testPlaneContainsPoint(){
+    Point p1 = {12,12,3};
+    Plane plane = {{0,0,3},{0,0,1}};
+    
+    ASSERT(plane.containsPoint(p1));
+}

@@ -45,4 +45,9 @@ public:
     static void testQuaternionLERP();
 };
 
+class PlaneTests {
+public:
+    static void testPlaneContainsPoint();
+};
+
 #endif /* AllTests_hpp */

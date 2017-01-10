@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "AllTests.hpp"
+#include "cAGERun.hpp"
 
 int main(int argc, const char * argv[]) {
     
@@ -39,6 +40,8 @@ int main(int argc, const char * argv[]) {
     AABBoxTests::testBoxContainsPoint();
     
     FrustaTests::testFrustaContainsPoint();
+    
+    cAGERun::runcAGE();
     
     return 0;
 }

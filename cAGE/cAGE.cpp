@@ -9,5 +9,16 @@
 
 #include <iostream>
 #include "cAGE.hpp"
-#include "cAGEPriv.hpp"
+
+void cAGE::Init(){
+    logManager.startUp();
+    fileManager.startUp();
+    resourceManager.startUp();
+    
+    //Simulate
+    
+    resourceManager.shutDown();
+    fileManager.shutDown();
+    logManager.shutDown();
+}
 

@@ -13,8 +13,23 @@
 /* The classes below are exported */
 #pragma GCC visibility push(default)
 
-class cAGE
+#import "Manager.hpp"
+
+#import "LogManager.hpp"
+#import "FileManager.hpp"
+#import "ResourceManager.hpp"
+
+class cAGE : public Manager<cAGE>
 {
+private:
+    LogManager logManager;
+    FileManager fileManager;
+    ResourceManager resourceManager;
+public:
+    cAGE():fileManager(),resourceManager(),logManager(){}
+    ~cAGE(){}
+    
+    void Init();
 };
 
 #pragma GCC visibility pop

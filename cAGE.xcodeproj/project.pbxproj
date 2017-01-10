@@ -8,22 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		EE7FE0701E1C5ADB00CA8148 /* cAGE.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE7FE06F1E1C5ADB00CA8148 /* cAGE.hpp */; };
-		EE7FE0721E1C5ADB00CA8148 /* cAGEPriv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE7FE0711E1C5ADB00CA8148 /* cAGEPriv.hpp */; };
 		EE7FE0741E1C5ADB00CA8148 /* cAGE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7FE0731E1C5ADB00CA8148 /* cAGE.cpp */; };
 		EE7FE07D1E1D52F800CA8148 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7FE07B1E1D52F800CA8148 /* Math.cpp */; };
 		EE7FE07E1E1D52F800CA8148 /* Math.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE7FE07C1E1D52F800CA8148 /* Math.hpp */; };
 		EE7FE0811E1D539000CA8148 /* Types.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7FE0801E1D535D00CA8148 /* Types.h */; };
+		EEA314181E2588C50074FE38 /* Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEA314161E2588C50074FE38 /* Manager.cpp */; };
+		EEA314191E2588C50074FE38 /* Manager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EEA314171E2588C50074FE38 /* Manager.hpp */; };
+		EEE7CAA81E2572E3002FBAF5 /* FileManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEE7CAA61E2572E3002FBAF5 /* FileManager.cpp */; };
+		EEE7CAA91E2572E3002FBAF5 /* FileManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EEE7CAA71E2572E3002FBAF5 /* FileManager.hpp */; };
+		EEE7CAAC1E2575D3002FBAF5 /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEE7CAAA1E2575D3002FBAF5 /* ResourceManager.cpp */; };
+		EEE7CAAD1E2575D3002FBAF5 /* ResourceManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EEE7CAAB1E2575D3002FBAF5 /* ResourceManager.hpp */; };
+		EEE7CAB01E25766B002FBAF5 /* LogManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEE7CAAE1E25766B002FBAF5 /* LogManager.cpp */; };
+		EEE7CAB11E25766B002FBAF5 /* LogManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EEE7CAAF1E25766B002FBAF5 /* LogManager.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE7FE06C1E1C5ADB00CA8148 /* libcAGE.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libcAGE.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7FE06F1E1C5ADB00CA8148 /* cAGE.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cAGE.hpp; sourceTree = "<group>"; };
-		EE7FE0711E1C5ADB00CA8148 /* cAGEPriv.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cAGEPriv.hpp; sourceTree = "<group>"; };
 		EE7FE0731E1C5ADB00CA8148 /* cAGE.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cAGE.cpp; sourceTree = "<group>"; };
 		EE7FE07B1E1D52F800CA8148 /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Math.cpp; path = Math/Math.cpp; sourceTree = "<group>"; };
 		EE7FE07C1E1D52F800CA8148 /* Math.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Math.hpp; path = Math/Math.hpp; sourceTree = "<group>"; };
 		EE7FE0801E1D535D00CA8148 /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Types.h; path = Types/Types.h; sourceTree = "<group>"; };
 		EE7FE0871E1D566800CA8148 /* Assertion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Assertion.h; path = Assertion/Assertion.h; sourceTree = "<group>"; };
+		EEA314161E2588C50074FE38 /* Manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Manager.cpp; sourceTree = "<group>"; };
+		EEA314171E2588C50074FE38 /* Manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Manager.hpp; sourceTree = "<group>"; };
+		EEE7CAA61E2572E3002FBAF5 /* FileManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileManager.cpp; path = LowerLevelSubsystems/FileManager.cpp; sourceTree = "<group>"; };
+		EEE7CAA71E2572E3002FBAF5 /* FileManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FileManager.hpp; path = LowerLevelSubsystems/FileManager.hpp; sourceTree = "<group>"; };
+		EEE7CAAA1E2575D3002FBAF5 /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceManager.cpp; path = LowerLevelSubsystems/ResourceManager.cpp; sourceTree = "<group>"; };
+		EEE7CAAB1E2575D3002FBAF5 /* ResourceManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourceManager.hpp; path = LowerLevelSubsystems/ResourceManager.hpp; sourceTree = "<group>"; };
+		EEE7CAAE1E25766B002FBAF5 /* LogManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LogManager.cpp; path = LowerLevelSubsystems/LogManager.cpp; sourceTree = "<group>"; };
+		EEE7CAAF1E25766B002FBAF5 /* LogManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LogManager.hpp; path = LowerLevelSubsystems/LogManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +70,12 @@
 		EE7FE06E1E1C5ADB00CA8148 /* cAGE */ = {
 			isa = PBXGroup;
 			children = (
+				EEA314151E2588C50074FE38 /* Manager */,
+				EEE7CAA51E2572BC002FBAF5 /* LowerLevel Subsystems */,
 				EE7FE0881E1D574D00CA8148 /* Assertion */,
 				EE7FE07F1E1D534900CA8148 /* Types */,
 				EE7FE07A1E1D52E200CA8148 /* Math */,
 				EE7FE06F1E1C5ADB00CA8148 /* cAGE.hpp */,
-				EE7FE0711E1C5ADB00CA8148 /* cAGEPriv.hpp */,
 				EE7FE0731E1C5ADB00CA8148 /* cAGE.cpp */,
 			);
 			path = cAGE;
@@ -91,6 +106,28 @@
 			name = Assertion;
 			sourceTree = "<group>";
 		};
+		EEA314151E2588C50074FE38 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EEA314161E2588C50074FE38 /* Manager.cpp */,
+				EEA314171E2588C50074FE38 /* Manager.hpp */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		EEE7CAA51E2572BC002FBAF5 /* LowerLevel Subsystems */ = {
+			isa = PBXGroup;
+			children = (
+				EEE7CAA71E2572E3002FBAF5 /* FileManager.hpp */,
+				EEE7CAA61E2572E3002FBAF5 /* FileManager.cpp */,
+				EEE7CAAB1E2575D3002FBAF5 /* ResourceManager.hpp */,
+				EEE7CAAA1E2575D3002FBAF5 /* ResourceManager.cpp */,
+				EEE7CAAF1E25766B002FBAF5 /* LogManager.hpp */,
+				EEE7CAAE1E25766B002FBAF5 /* LogManager.cpp */,
+			);
+			name = "LowerLevel Subsystems";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -98,10 +135,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE7CAAD1E2575D3002FBAF5 /* ResourceManager.hpp in Headers */,
+				EEE7CAB11E25766B002FBAF5 /* LogManager.hpp in Headers */,
+				EEA314191E2588C50074FE38 /* Manager.hpp in Headers */,
+				EEE7CAA91E2572E3002FBAF5 /* FileManager.hpp in Headers */,
 				EE7FE0811E1D539000CA8148 /* Types.h in Headers */,
 				EE7FE0701E1C5ADB00CA8148 /* cAGE.hpp in Headers */,
 				EE7FE07E1E1D52F800CA8148 /* Math.hpp in Headers */,
-				EE7FE0721E1C5ADB00CA8148 /* cAGEPriv.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +202,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE7CAB01E25766B002FBAF5 /* LogManager.cpp in Sources */,
+				EEA314181E2588C50074FE38 /* Manager.cpp in Sources */,
+				EEE7CAA81E2572E3002FBAF5 /* FileManager.cpp in Sources */,
 				EE7FE0741E1C5ADB00CA8148 /* cAGE.cpp in Sources */,
 				EE7FE07D1E1D52F800CA8148 /* Math.cpp in Sources */,
+				EEE7CAAC1E2575D3002FBAF5 /* ResourceManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

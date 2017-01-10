@@ -10,6 +10,7 @@
 		EEE7CA871E1D5CED002FBAF5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEE7CA861E1D5CED002FBAF5 /* main.cpp */; };
 		EEE7CA8F1E1D5D0F002FBAF5 /* AllTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEE7CA8D1E1D5D0F002FBAF5 /* AllTests.cpp */; };
 		EEE7CAA41E1D5DFD002FBAF5 /* libcAGE.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE7CAA31E1D5DFD002FBAF5 /* libcAGE.dylib */; };
+		EEE7CAB91E257D96002FBAF5 /* cAGERun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEE7CAB71E257D96002FBAF5 /* cAGERun.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +31,8 @@
 		EEE7CA8D1E1D5D0F002FBAF5 /* AllTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AllTests.cpp; sourceTree = "<group>"; };
 		EEE7CA8E1E1D5D0F002FBAF5 /* AllTests.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AllTests.hpp; sourceTree = "<group>"; };
 		EEE7CAA31E1D5DFD002FBAF5 /* libcAGE.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcAGE.dylib; path = ../build/Debug/libcAGE.dylib; sourceTree = "<group>"; };
+		EEE7CAB71E257D96002FBAF5 /* cAGERun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cAGERun.cpp; sourceTree = "<group>"; };
+		EEE7CAB81E257D96002FBAF5 /* cAGERun.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cAGERun.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				EEE7CA861E1D5CED002FBAF5 /* main.cpp */,
 				EEE7CA8E1E1D5D0F002FBAF5 /* AllTests.hpp */,
 				EEE7CA8D1E1D5D0F002FBAF5 /* AllTests.cpp */,
+				EEE7CAB71E257D96002FBAF5 /* cAGERun.cpp */,
+				EEE7CAB81E257D96002FBAF5 /* cAGERun.hpp */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE7CAB91E257D96002FBAF5 /* cAGERun.cpp in Sources */,
 				EEE7CA871E1D5CED002FBAF5 /* main.cpp in Sources */,
 				EEE7CA8F1E1D5D0F002FBAF5 /* AllTests.cpp in Sources */,
 			);

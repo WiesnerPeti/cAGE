@@ -41,6 +41,8 @@ int main(int argc, const char * argv[]) {
     
     FrustaTests::testFrustaContainsPoint();
     
+    LinkedListTests::testLinkedListItemAdded();
+    
     cAGERun::runcAGE();
     
     return 0;

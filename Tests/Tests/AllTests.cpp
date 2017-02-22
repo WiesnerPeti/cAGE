@@ -10,6 +10,7 @@
 
 #include "Math.hpp"
 #include "Assertion.h"
+#include "LinkedList.hpp"
 
 #pragma mark - Vector Tests
 void VectorTests::testVectorMultiplication()
@@ -272,4 +273,18 @@ void FrustaTests::testFrustaContainsPoint(){
     
     ASSERT(f.containsPoint({0,0.5,0.5}) == true);
     ASSERT(f.containsPoint({0,2,0.5}) == false);
+}
+
+#pragma mark - Collection
+#pragma mark LinkedList
+void LinkedListTests::testLinkedListItemAdded(){
+    int i = 2;
+    LinkedList<int> l;
+    l.addItem(&i);
+    
+    int *prev = l.root.prev->item;
+    int *next = l.root.next->item;
+    
+    ASSERT(*prev == 2);
+    ASSERT(*next == 2);
 }

@@ -59,4 +59,9 @@ class FrustaTests{
 public:
     static void testFrustaContainsPoint();
 };
+
+class LinkedListTests{
+public:
+    static void testLinkedListItemAdded();
+};
 #endif /* AllTests_hpp */

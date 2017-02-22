@@ -63,5 +63,7 @@ public:
 class LinkedListTests{
 public:
     static void testLinkedListItemAdded();
+    static void testLinkedListItemFound();
+    static void testLinkedListItemRemoved();
 };
 #endif /* AllTests_hpp */

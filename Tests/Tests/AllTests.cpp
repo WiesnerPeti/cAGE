@@ -280,11 +280,37 @@ void FrustaTests::testFrustaContainsPoint(){
 void LinkedListTests::testLinkedListItemAdded(){
     int i = 2;
     LinkedList<int> l;
-    l.addItem(&i);
+    l.add(&i);
     
-    int *prev = l.root.prev->item;
     int *next = l.root.next->item;
     
-    ASSERT(*prev == 2);
     ASSERT(*next == 2);
+}
+
+void LinkedListTests::testLinkedListItemFound(){
+    int i = 2;
+    int j = 3;
+    LinkedList<int> l;
+    l.add(&i);
+    l.add(&j);
+    
+    Link<int> *found = l.find(&i);
+    
+    ASSERT(*(found->item) == 2);
+}
+
+void LinkedListTests::testLinkedListItemRemoved(){
+    int i = 2;
+    int j = 3;
+    LinkedList<int> l;
+    l.add(&i);
+    l.add(&j);
+    
+    Link<int> *found = l.find(&i);
+    
+    l.remove(found);
+    
+    found = l.find(&i);
+    
+    ASSERT(found == NULL);
 }

@@ -45,6 +45,12 @@ int main(int argc, const char * argv[]) {
     LinkedListTests::testLinkedListItemFound();
     LinkedListTests::testLinkedListItemRemoved();
     
+    AlignedAllocatorTests::testAlignedAllocation();
+    AlignedAllocatorTests::testAlignedFree();
+    
+    PoolAllocatorTests::testPoolAllocatorGet();
+    PoolAllocatorTests::testPoolAllocatorPut();
+    
     cAGERun::runcAGE();
     
     return 0;

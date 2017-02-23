@@ -66,4 +66,16 @@ public:
     static void testLinkedListItemFound();
     static void testLinkedListItemRemoved();
 };
+
+class AlignedAllocatorTests{
+public:
+    static void testAlignedAllocation();
+    static void testAlignedFree();
+};
+
+class PoolAllocatorTests{
+public:
+    static void testPoolAllocatorGet();
+    static void testPoolAllocatorPut();
+};
 #endif /* AllTests_hpp */

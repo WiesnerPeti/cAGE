@@ -11,5 +11,6 @@
 
 typedef float F32;
 typedef bool B8;
+typedef unsigned int U8;
 
 #endif /* Types_h */

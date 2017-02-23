@@ -11,6 +11,8 @@
 #include "Math.hpp"
 #include "Assertion.h"
 #include "LinkedList.hpp"
+#include "AlignedAllocator.hpp"
+#include "PoolAllocator.hpp"
 
 #pragma mark - Vector Tests
 void VectorTests::testVectorMultiplication()
@@ -313,4 +315,42 @@ void LinkedListTests::testLinkedListItemRemoved(){
     found = l.find(&i);
     
     ASSERT(found == NULL);
+}
+
+#pragma mark - Allocators
+void AlignedAllocatorTests::testAlignedAllocation()
+{
+    size_t alignment = 16;
+    void* p = AlignedAllocator::allocateAligned(30, alignment);
+    
+    uintptr_t pointer = reinterpret_cast<uintptr_t>(p);
+    
+    ASSERT((pointer & 0xf) == 0);
+}
+
+void AlignedAllocatorTests::testAlignedFree()
+{
+    void* p = AlignedAllocator::allocateAligned(30, 16);
+    
+    AlignedAllocator::freeAligned(p);
+}
+
+void PoolAllocatorTests::testPoolAllocatorGet()
+{
+    PoolAllocator<Link<int>, 2> p;
+    
+    Link<int> *l = p.getItem();
+    
+    ASSERT((l != NULL) && p.availableAmount() == 1);
+}
+
+void PoolAllocatorTests::testPoolAllocatorPut()
+{
+    PoolAllocator<Link<int>, 2> p;
+    
+    Link<int> *l = p.getItem();
+    
+    p.putItem(l);
+    
+    ASSERT(p.availableAmount() == 2);
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE2C323D1E5F7B89007F7685 /* AlignedAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2C32381E5F7B89007F7685 /* AlignedAllocator.cpp */; };
+		EE2C323E1E5F7B89007F7685 /* AlignedAllocator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE2C32391E5F7B89007F7685 /* AlignedAllocator.hpp */; };
+		EE2C323F1E5F7B89007F7685 /* PoolAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2C323B1E5F7B89007F7685 /* PoolAllocator.cpp */; };
+		EE2C32401E5F7B89007F7685 /* PoolAllocator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE2C323C1E5F7B89007F7685 /* PoolAllocator.hpp */; };
 		EE7FE0701E1C5ADB00CA8148 /* cAGE.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE7FE06F1E1C5ADB00CA8148 /* cAGE.hpp */; };
 		EE7FE0741E1C5ADB00CA8148 /* cAGE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7FE0731E1C5ADB00CA8148 /* cAGE.cpp */; };
 		EE7FE07D1E1D52F800CA8148 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7FE07B1E1D52F800CA8148 /* Math.cpp */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE2C32381E5F7B89007F7685 /* AlignedAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlignedAllocator.cpp; sourceTree = "<group>"; };
+		EE2C32391E5F7B89007F7685 /* AlignedAllocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AlignedAllocator.hpp; sourceTree = "<group>"; };
+		EE2C323B1E5F7B89007F7685 /* PoolAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PoolAllocator.cpp; sourceTree = "<group>"; };
+		EE2C323C1E5F7B89007F7685 /* PoolAllocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PoolAllocator.hpp; sourceTree = "<group>"; };
 		EE7FE06C1E1C5ADB00CA8148 /* libcAGE.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libcAGE.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7FE06F1E1C5ADB00CA8148 /* cAGE.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cAGE.hpp; sourceTree = "<group>"; };
 		EE7FE0731E1C5ADB00CA8148 /* cAGE.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cAGE.cpp; sourceTree = "<group>"; };
@@ -59,6 +67,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE2C32361E5F7B89007F7685 /* Allocators */ = {
+			isa = PBXGroup;
+			children = (
+				EE2C32371E5F7B89007F7685 /* AlignedAllocator */,
+				EE2C323A1E5F7B89007F7685 /* PoolAllocator */,
+			);
+			path = Allocators;
+			sourceTree = "<group>";
+		};
+		EE2C32371E5F7B89007F7685 /* AlignedAllocator */ = {
+			isa = PBXGroup;
+			children = (
+				EE2C32381E5F7B89007F7685 /* AlignedAllocator.cpp */,
+				EE2C32391E5F7B89007F7685 /* AlignedAllocator.hpp */,
+			);
+			path = AlignedAllocator;
+			sourceTree = "<group>";
+		};
+		EE2C323A1E5F7B89007F7685 /* PoolAllocator */ = {
+			isa = PBXGroup;
+			children = (
+				EE2C323B1E5F7B89007F7685 /* PoolAllocator.cpp */,
+				EE2C323C1E5F7B89007F7685 /* PoolAllocator.hpp */,
+			);
+			path = PoolAllocator;
+			sourceTree = "<group>";
+		};
 		EE7FE0631E1C5ADA00CA8148 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +113,7 @@
 		EE7FE06E1E1C5ADB00CA8148 /* cAGE */ = {
 			isa = PBXGroup;
 			children = (
+				EE2C32361E5F7B89007F7685 /* Allocators */,
 				EEBC06691E5E17D600C493AE /* Collections */,
 				EEA314151E2588C50074FE38 /* Manager */,
 				EEE7CAA51E2572BC002FBAF5 /* LowerLevel Subsystems */,
@@ -166,7 +202,9 @@
 				EEE7CAAD1E2575D3002FBAF5 /* ResourceManager.hpp in Headers */,
 				EEE7CAB11E25766B002FBAF5 /* LogManager.hpp in Headers */,
 				EEA314191E2588C50074FE38 /* Manager.hpp in Headers */,
+				EE2C323E1E5F7B89007F7685 /* AlignedAllocator.hpp in Headers */,
 				EEE7CAA91E2572E3002FBAF5 /* FileManager.hpp in Headers */,
+				EE2C32401E5F7B89007F7685 /* PoolAllocator.hpp in Headers */,
 				EEBC06761E5E188E00C493AE /* Link.hpp in Headers */,
 				EEBC06721E5E185700C493AE /* LinkedList.hpp in Headers */,
 				EE7FE0811E1D539000CA8148 /* Types.h in Headers */,
@@ -233,12 +271,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE7CAB01E25766B002FBAF5 /* LogManager.cpp in Sources */,
+				EE2C323F1E5F7B89007F7685 /* PoolAllocator.cpp in Sources */,
 				EEA314181E2588C50074FE38 /* Manager.cpp in Sources */,
 				EEE7CAA81E2572E3002FBAF5 /* FileManager.cpp in Sources */,
 				EE7FE0741E1C5ADB00CA8148 /* cAGE.cpp in Sources */,
 				EE7FE07D1E1D52F800CA8148 /* Math.cpp in Sources */,
 				EEE7CAAC1E2575D3002FBAF5 /* ResourceManager.cpp in Sources */,
 				EEBC06711E5E185700C493AE /* LinkedList.cpp in Sources */,
+				EE2C323D1E5F7B89007F7685 /* AlignedAllocator.cpp in Sources */,
 				EEBC06751E5E188E00C493AE /* Link.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

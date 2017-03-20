@@ -9,8 +9,11 @@
 #ifndef Types_h
 #define Types_h
 
+#include <stdint.h>
+
 typedef float F32;
 typedef bool B8;
 typedef unsigned int U8;
+typedef uint32_t U32;
 
 #endif /* Types_h */

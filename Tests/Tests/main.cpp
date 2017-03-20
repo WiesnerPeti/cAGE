@@ -51,6 +51,8 @@ int main(int argc, const char * argv[]) {
     PoolAllocatorTests::testPoolAllocatorGet();
     PoolAllocatorTests::testPoolAllocatorPut();
     
+    HashTests::testHashBasics();
+    
     cAGERun::runcAGE();
     
     return 0;

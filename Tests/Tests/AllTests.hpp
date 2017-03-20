@@ -78,4 +78,9 @@ public:
     static void testPoolAllocatorGet();
     static void testPoolAllocatorPut();
 };
+
+class HashTests{
+public:
+    static void testHashBasics();
+};
 #endif /* AllTests_hpp */

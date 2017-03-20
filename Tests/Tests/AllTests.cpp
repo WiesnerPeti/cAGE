@@ -9,6 +9,7 @@
 #include "AllTests.hpp"
 
 #include "Math.hpp"
+#include "CRC.hpp"
 #include "Assertion.h"
 #include "LinkedList.hpp"
 #include "AlignedAllocator.hpp"
@@ -353,4 +354,16 @@ void PoolAllocatorTests::testPoolAllocatorPut()
     p.putItem(l);
     
     ASSERT(p.availableAmount() == 2);
+}
+
+#pragma mark - Hash
+void HashTests::testHashBasics()
+{
+    const char* test1 = "Hello";
+    const char* test2 = "Helo";
+    
+    U32 hash1 = CRC32C::crc32c(0, test1, strlen(test1));
+    U32 hash2 = CRC32C::crc32c(0, test2, strlen(test2));
+    
+    ASSERT(hash1 != hash2);
 }

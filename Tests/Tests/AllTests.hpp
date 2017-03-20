@@ -90,4 +90,9 @@ public:
     static void testDictionaryRemove();
     static void testDictionaryGet();
 };
+
+class String2IdTests{
+public:
+    static void testString2Id();
+};
 #endif /* AllTests_hpp */

@@ -10,6 +10,7 @@
 
 #include "Math.hpp"
 #include "CRC.hpp"
+#include "ID.hpp"
 #include "Assertion.h"
 #include "LinkedList.hpp"
 #include "Dictionary.hpp"
@@ -397,4 +398,12 @@ void DictionaryTests::testDictionaryGet()
     d.put("key1", 32);
     
     ASSERT(d.get("key1") == 32 && d.get("key2") == UINT32_MAX);
+}
+
+#pragma mark - String To Id
+void String2IdTests::testString2Id()
+{
+    U32 id = id("key");
+    
+    ASSERT(id !=0 && ids::g_ids.count() > 0)
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE11542D1E80996600CCFBB0 /* ID.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE11542B1E80996600CCFBB0 /* ID.hpp */; };
 		EE2C323D1E5F7B89007F7685 /* AlignedAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2C32381E5F7B89007F7685 /* AlignedAllocator.cpp */; };
 		EE2C323E1E5F7B89007F7685 /* AlignedAllocator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EE2C32391E5F7B89007F7685 /* AlignedAllocator.hpp */; };
 		EE2C323F1E5F7B89007F7685 /* PoolAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2C323B1E5F7B89007F7685 /* PoolAllocator.cpp */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE11542B1E80996600CCFBB0 /* ID.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ID.hpp; path = Types/ID.hpp; sourceTree = "<group>"; };
 		EE2C32381E5F7B89007F7685 /* AlignedAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlignedAllocator.cpp; sourceTree = "<group>"; };
 		EE2C32391E5F7B89007F7685 /* AlignedAllocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AlignedAllocator.hpp; sourceTree = "<group>"; };
 		EE2C323B1E5F7B89007F7685 /* PoolAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PoolAllocator.cpp; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				EE7FE0801E1D535D00CA8148 /* Types.h */,
+				EE11542B1E80996600CCFBB0 /* ID.hpp */,
 			);
 			name = Types;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				EEE7CAAD1E2575D3002FBAF5 /* ResourceManager.hpp in Headers */,
 				EE6D7E091E807EF100EE1CE8 /* Dictionary.hpp in Headers */,
 				EEE7CAB11E25766B002FBAF5 /* LogManager.hpp in Headers */,
+				EE11542D1E80996600CCFBB0 /* ID.hpp in Headers */,
 				EEA314191E2588C50074FE38 /* Manager.hpp in Headers */,
 				EE2C323E1E5F7B89007F7685 /* AlignedAllocator.hpp in Headers */,
 				EEE7CAA91E2572E3002FBAF5 /* FileManager.hpp in Headers */,

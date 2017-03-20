@@ -57,6 +57,8 @@ int main(int argc, const char * argv[]) {
     DictionaryTests::testDictionaryRemove();
     DictionaryTests::testDictionaryGet();
     
+    String2IdTests::testString2Id();
+    
     cAGERun::runcAGE();
     
     return 0;

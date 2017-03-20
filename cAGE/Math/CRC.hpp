@@ -1,3 +1,6 @@
+#ifndef CRC32C_hpp
+#define CRC32C_hpp
+
 #include "Types.h"
 #include <stdlib.h>
 
@@ -22,3 +25,5 @@ public:
         return ~crc;
     }
 };
+
+#endif /* CRC32C_hpp */

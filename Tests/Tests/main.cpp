@@ -53,6 +53,10 @@ int main(int argc, const char * argv[]) {
     
     HashTests::testHashBasics();
     
+    DictionaryTests::testDictionaryPut();
+    DictionaryTests::testDictionaryRemove();
+    DictionaryTests::testDictionaryGet();
+    
     cAGERun::runcAGE();
     
     return 0;

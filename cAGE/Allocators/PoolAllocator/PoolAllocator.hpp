@@ -11,7 +11,7 @@
 
 #include "AlignedAllocator.hpp"
 
-template <typename T, U8 N>
+template <typename T, U32 N>
 
 class PoolAllocator{
     T* pool[N];
@@ -25,6 +25,12 @@ public:
         }
     }
     
+    ~PoolAllocator(){
+        for (U32 i = 0; i < N; i++) {
+            AlignedAllocator::freeAligned(pool[i]);
+        }
+    }
+    
     T* getItem()
     {
         ASSERT(currentIndex > 0);
@@ -33,8 +39,8 @@ public:
     
     void putItem(T* item)
     {
-        ASSERT(currentIndex < N-1);
-        pool[currentIndex++] = item;
+        ASSERT((currentIndex + 1) <= N-1);
+        pool[++currentIndex] = item;
     }
     
     U8 availableAmount(){

@@ -12,6 +12,7 @@
 #include "CRC.hpp"
 #include "Assertion.h"
 #include "LinkedList.hpp"
+#include "Dictionary.hpp"
 #include "AlignedAllocator.hpp"
 #include "PoolAllocator.hpp"
 
@@ -350,9 +351,9 @@ void PoolAllocatorTests::testPoolAllocatorPut()
     PoolAllocator<Link<int>, 2> p;
     
     Link<int> *l = p.getItem();
-    
+
     p.putItem(l);
-    
+
     ASSERT(p.availableAmount() == 2);
 }
 
@@ -366,4 +367,34 @@ void HashTests::testHashBasics()
     U32 hash2 = CRC32C::crc32c(0, test2, strlen(test2));
     
     ASSERT(hash1 != hash2);
+}
+
+#pragma mark - Dictionary
+void DictionaryTests::testDictionaryPut()
+{
+    Dictionary<U32,30> d = Dictionary<U32,30>();
+    
+    d.put("key1", 32);
+    
+    ASSERT(d.count() == 1);
+}
+
+void DictionaryTests::testDictionaryRemove()
+{
+    Dictionary<U32,30> d = Dictionary<U32,30>();
+    
+    d.put("key1", 32);
+    d.remove("key2");
+    d.remove("key1");
+    
+    ASSERT(d.count() == 0);
+}
+
+void DictionaryTests::testDictionaryGet()
+{
+    Dictionary<U32,30> d = Dictionary<U32,30>();
+    
+    d.put("key1", 32);
+    
+    ASSERT(d.get("key1") == 32 && d.get("key2") == UINT32_MAX);
 }

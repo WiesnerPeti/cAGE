@@ -83,4 +83,11 @@ class HashTests{
 public:
     static void testHashBasics();
 };
+
+class DictionaryTests{
+public:
+    static void testDictionaryPut();
+    static void testDictionaryRemove();
+    static void testDictionaryGet();
+};
 #endif /* AllTests_hpp */

@@ -16,4 +16,6 @@ typedef bool B8;
 typedef unsigned int U8;
 typedef uint32_t U32;
 
+#define U32_MAX UINT32_MAX
+
 #endif /* Types_h */
